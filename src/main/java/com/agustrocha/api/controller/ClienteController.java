@@ -21,7 +21,7 @@ public class ClienteController {
     @Qualifier("clienteService") //En caso de que hubiesen varias implementaciones de la interfaz, se deberá especificar cual queremos usar.
     private IClienteService clienteService; //Se recomienda utilizar la clase más genérica posible, el Autowired usará la clase que tenga implementada esta interfaz.
 
-    @GetMapping("/listar") //Request del tipo GET
+    @GetMapping({"/listar", "/"}) //Request del tipo GET
     public String listar(Model model){
         model.addAttribute("titulo", "Listado de clientes");
         model.addAttribute("clientes", clienteService.findAll());
